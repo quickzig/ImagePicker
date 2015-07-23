@@ -11,22 +11,33 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var ImagePickerView: UIImageView!
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var CameraButton: UIBarButtonItem!
+    @IBOutlet weak var TopText: UITextField!
+    @IBOutlet weak var BottomText: UITextField!
     
     let memeTextAttributes = [
-        NSStrokeColorAttributeName : //TODO: Fill in appropriate UIColor,
-        NSForegroundColorAttributeName : //TODO: Fill in appropriate UIColor,
+        NSStrokeColorAttributeName : UIColor.blackColor() ,
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : //TODO: Fill in appropriate Float
+        NSStrokeWidthAttributeName : 1
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TopText.text = ""
+        TopText.textAlignment = NSTextAlignment.Center
+        TopText.defaultTextAttributes = memeTextAttributes
+        
+        BottomText.text = ""
+        BottomText.textAlignment = NSTextAlignment.Center
+        BottomText.defaultTextAttributes = memeTextAttributes
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        CameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
 
