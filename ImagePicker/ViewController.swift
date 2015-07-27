@@ -25,7 +25,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         TopText.defaultTextAttributes = memeTextAttributes
         TopText.placeholder = "Top Text"
         TopText.textAlignment = NSTextAlignment.Center
@@ -40,6 +39,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.BottomText.delegate = self
         
         self.subscribeToKeyboardNotifications()
+        
+        
 
     }
     
