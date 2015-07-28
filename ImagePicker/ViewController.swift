@@ -53,6 +53,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
     }
+    
+    @IBAction func shareMeme(sender: AnyObject) {
+        let image = UIImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
 
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
         
