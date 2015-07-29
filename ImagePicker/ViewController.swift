@@ -14,6 +14,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var CameraButton: UIBarButtonItem!
     @IBOutlet weak var TopText: UITextField!
     @IBOutlet weak var BottomText: UITextField!
+    @IBOutlet weak var ShareButton: UIBarButtonItem!
+    
+    var memedImage = UIImage()
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor() ,
@@ -56,9 +59,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareMeme(sender: AnyObject) {
         let image = UIImage()
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.presentViewController(controller, animated: true, completion: nil)
-        
+        controller.completionWithItemsHandler = {
+             (s: String!, ok: Bool, items: [AnyObject]!, err:NSError!) -> Void in
+                self.save()
+        }
     }
 
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
@@ -67,7 +73,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
-        
+        ShareButton.enabled = true
+       
     }
     @IBAction func pickAnImage(sender: AnyObject) {
         // let pickController = UIImagePickerController()
@@ -76,7 +83,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        ShareButton.enabled = true
         self.presentViewController(imagePicker, animated: true, completion: nil)
+        
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -88,6 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        ShareButton.enabled = false
     
     }
     
@@ -130,9 +140,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.CGRectValue().height
     }
     
+    
+    
+    // Create a UIImage that combines the Image View and the Textfields
+    func generateMemedImage() -> UIImage {
+        // render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        return memedImage
+    }
+    
     func save() {
-        //Create the meme
-        //var meme = Meme( topText: TopText.text!, bottomText: BottomText.text!, originalImage: ImagePickerView.image, memeImage: memeImage)
+        //Create the memed
+        var meme = Meme( topText: TopText.text!, bottomText: BottomText.text!, withImage: ImagePickerView.image!, memeImage: generateMemedImage())
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        
     }
     
    

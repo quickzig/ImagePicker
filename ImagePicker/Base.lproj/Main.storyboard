@@ -59,7 +59,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VF0-lx-bgM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" id="Tha-QL-0YQ">
+                                    <barButtonItem enabled="NO" title="Share" id="Tha-QL-0YQ">
                                         <connections>
                                             <action selector="shareMeme:" destination="vXZ-lx-hvc" id="zgA-oX-2jO"/>
                                         </connections>
@@ -115,12 +115,71 @@
                         <outlet property="BottomText" destination="fWK-gC-uea" id="h1v-Hc-Kht"/>
                         <outlet property="CameraButton" destination="ezS-zx-i6O" id="Oya-97-pZR"/>
                         <outlet property="ImagePickerView" destination="znc-GV-OX1" id="lV1-hL-rxg"/>
+                        <outlet property="ShareButton" destination="Tha-QL-0YQ" id="K8I-0g-anE"/>
                         <outlet property="TopText" destination="vjR-mK-iRl" id="Lyi-jA-6Xu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="399" y="402"/>
+            <point key="canvasLocation" x="9" y="370"/>
+        </scene>
+        <!--Meme Table View Controller-->
+        <scene sceneID="AHf-yP-Ec6">
+            <objects>
+                <tableViewController id="VjC-fb-oAG" customClass="MemeTableViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uay-Q3-3af">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cDX-mr-7QB">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDX-mr-7QB" id="sNA-Or-1yP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VjC-fb-oAG" id="od2-tA-T9K"/>
+                            <outlet property="delegate" destination="VjC-fb-oAG" id="pus-SA-xPa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ICU-pD-v6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652.5" y="370"/>
+        </scene>
+        <!--Meme Collection View Controller-->
+        <scene sceneID="UHB-iy-mEn">
+            <objects>
+                <collectionViewController id="CJq-dc-4lE" customClass="MemeCollectionViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Z3E-Wk-kty">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YMt-sK-OCp">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xkl-MZ-8Ap">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="CJq-dc-4lE" id="Cc1-Si-tZq"/>
+                            <outlet property="delegate" destination="CJq-dc-4lE" id="gir-S0-j7v"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdf-9r-hOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="370"/>
         </scene>
     </scenes>
 </document>
