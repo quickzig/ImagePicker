@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var BottomText: UITextField!
     @IBOutlet weak var ShareButton: UIBarButtonItem!
     
+    
     var memedImage = UIImage()
     
     let memeTextAttributes = [
@@ -58,26 +59,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-        //let image = UIImage()
-        save()
-        
+                
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.presentViewController(controller, animated: true, completion: nil)
-        controller.completionWithItemsHandler = { (activity, success, items, error) in
-            let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeTabBarController")! as! UITabBarController
+        
+        controller.completionWithItemsHandler = {
+            (s: String!, ok: Bool, items: [AnyObject]!, err:NSError!) -> Void in
+            self.save()
             
-            self.navigationController!.presentViewController(detailController, animated: true, completion: nil)
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.navigationController?.setToolbarHidden(true, animated: false) //Set the toolbar hidden so as to enable the table view's toolbar.
-            
-            //Reset Editor View.
+            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarViewController") as! UITabBarController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        
+         //    //Reset Editor View.
             //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
            // applicationDelegate.editorMeme = Meme(topText: "TOP", bottomText: "BOTTOM", image: UIImage(), memedImage: UIImage())
            
-        }
+        //}
         
-                
-        self.presentViewController(controller, animated: true, completion:nil)
+        
+        
 
     }
 
@@ -97,7 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        ShareButton.enabled = true
+        
         self.presentViewController(imagePicker, animated: true, completion: nil)
         
     }
@@ -111,7 +112,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        ShareButton.enabled = false
     
     }
     

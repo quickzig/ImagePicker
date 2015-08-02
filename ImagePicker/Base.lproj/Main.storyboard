@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CreateMemeViewController-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" title="CreateMemeViewController" id="vXZ-lx-hvc" customClass="ViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -33,6 +33,9 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="556" width="400" height="44"/>
+                                </variation>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjR-mK-iRl">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -56,19 +59,22 @@
                                     <rect key="frame" x="97" y="213" width="207" height="174"/>
                                 </variation>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VF0-lx-bgM">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dec-Gb-FAK">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem enabled="NO" title="Share" id="Tha-QL-0YQ">
-                                        <connections>
-                                            <action selector="shareMeme:" destination="vXZ-lx-hvc" id="zgA-oX-2jO"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <navigationItem title="Title" id="8ib-rX-Jte">
+                                        <barButtonItem key="leftBarButtonItem" title="Share" id="wqI-mZ-OqZ">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="vXZ-lx-hvc" id="2jb-HW-bEQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="pZ1-zA-gxH"/>
+                                    </navigationItem>
                                 </items>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
                                 </variation>
-                            </toolbar>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -84,7 +90,7 @@
                                 <exclude reference="vjR-mK-iRl"/>
                                 <exclude reference="fWK-gC-uea"/>
                                 <exclude reference="znc-GV-OX1"/>
-                                <exclude reference="VF0-lx-bgM"/>
+                                <exclude reference="Dec-Gb-FAK"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Kds-bA-JRK"/>
@@ -100,7 +106,7 @@
                                 <include reference="vjR-mK-iRl"/>
                                 <include reference="fWK-gC-uea"/>
                                 <include reference="znc-GV-OX1"/>
-                                <include reference="VF0-lx-bgM"/>
+                                <include reference="Dec-Gb-FAK"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Kds-bA-JRK"/>
@@ -111,22 +117,23 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="BottomText" destination="fWK-gC-uea" id="h1v-Hc-Kht"/>
                         <outlet property="CameraButton" destination="ezS-zx-i6O" id="Oya-97-pZR"/>
                         <outlet property="ImagePickerView" destination="znc-GV-OX1" id="lV1-hL-rxg"/>
-                        <outlet property="ShareButton" destination="Tha-QL-0YQ" id="K8I-0g-anE"/>
                         <outlet property="TopText" destination="vjR-mK-iRl" id="Lyi-jA-6Xu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="360"/>
+            <point key="canvasLocation" x="-469.5" y="357"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="Fgy-y4-D4u">
             <objects>
-                <tabBarController title="TabBarController" id="wzi-1U-19R" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" title="TabBarController" id="wzi-1U-19R" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="53U-cX-Egr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -140,12 +147,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chd-6Y-ZoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315" y="370"/>
+            <point key="canvasLocation" x="235.5" y="352"/>
         </scene>
         <!--Meme Collection View Controller-->
         <scene sceneID="6X9-bx-3Nq">
             <objects>
-                <collectionViewController id="YcG-hI-KDI" customClass="MemeCollectionViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MemeCollectionView" id="YcG-hI-KDI" customClass="MemeCollectionViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="SrI-j7-4sj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

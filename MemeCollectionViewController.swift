@@ -11,6 +11,8 @@ import UIKit
 class MemeCollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var memes: [Meme]!
+
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         let object = UIApplication.sharedApplication().delegate
@@ -23,8 +25,8 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        let meme = memes[indexPath.item]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+        let meme = memes[indexPath.row]
         let imageView = UIImageView(image: meme.memeImage)
         cell.backgroundView = imageView
         return cell
