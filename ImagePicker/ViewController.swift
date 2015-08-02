@@ -58,13 +58,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-        let image = UIImage()
+        //let image = UIImage()
+        save()
+        
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.presentViewController(controller, animated: true, completion: nil)
-        controller.completionWithItemsHandler = {
-             (s: String!, ok: Bool, items: [AnyObject]!, err:NSError!) -> Void in
-                self.save()
+        controller.completionWithItemsHandler = { (activity, success, items, error) in
+            let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeTabBarController")! as! UITabBarController
+            
+            self.navigationController!.presentViewController(detailController, animated: true, completion: nil)
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.setToolbarHidden(true, animated: false) //Set the toolbar hidden so as to enable the table view's toolbar.
+            
+            //Reset Editor View.
+            //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+           // applicationDelegate.editorMeme = Meme(topText: "TOP", bottomText: "BOTTOM", image: UIImage(), memedImage: UIImage())
+           
         }
+        
+                
+        self.presentViewController(controller, animated: true, completion:nil)
+
     }
 
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
@@ -144,12 +158,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Create a UIImage that combines the Image View and the Textfields
     func generateMemedImage() -> UIImage {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         // render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
+         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         return memedImage
     }
@@ -157,10 +174,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         //Create the memed
         var meme = Meme( topText: TopText.text!, bottomText: BottomText.text!, withImage: ImagePickerView.image!, memeImage: generateMemedImage())
+     
+        
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         
-        
     }
+    
+
     
    
     
