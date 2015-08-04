@@ -38,11 +38,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         BottomText.placeholder = "Bottom Text"
         BottomText.textAlignment = NSTextAlignment.Center
        
+        ShareButton.enabled = false
         
         self.TopText.delegate=self
         self.BottomText.delegate = self
         
         self.subscribeToKeyboardNotifications()
+    
         
         
 
@@ -106,8 +108,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             ImagePickerView.contentMode = .ScaleAspectFit
             ImagePickerView.image = pickedImage
-             dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
         }
+        ShareButton.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
