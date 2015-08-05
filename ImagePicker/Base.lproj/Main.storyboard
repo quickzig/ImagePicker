@@ -34,7 +34,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjR-mK-iRl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjR-mK-iRl">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -42,7 +42,7 @@
                                     <rect key="frame" x="3" y="91" width="395" height="51"/>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWK-gC-uea">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWK-gC-uea">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>

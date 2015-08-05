@@ -19,6 +19,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var memedImage = UIImage()
     
+    var keyboardHidden = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +53,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(animated: Bool) {
         CameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        super.viewWillAppear(animated)
+        self.subscribeToKeyboardNotifications()
     }
     
     // Unsubscribe
@@ -129,7 +133,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
@@ -140,13 +144,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if BottomText.isFirstResponder() {
+        //if BottomText.isFirstResponder() {
+        if(keyboardHidden){
             self.view.frame.origin.y -= getKeyboardHeight(notification)
+            keyboardHidden = false
         }
     }
     func keyboardWillHide(notification: NSNotification) {
-        if BottomText.isFirstResponder() {
+        //if BottomText.isFirstResponder() {
+        if(!keyboardHidden){
             self.view.frame.origin.y += getKeyboardHeight(notification)
+            keyboardHidden = true
         }
     }
     
