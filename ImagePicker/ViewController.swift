@@ -19,23 +19,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var memedImage = UIImage()
     
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor() ,
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -5.0
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            //NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -3
+        ]
+        
         TopText.defaultTextAttributes = memeTextAttributes
-        TopText.placeholder = "Top Text"
         TopText.textAlignment = NSTextAlignment.Center
         
         
         BottomText.defaultTextAttributes = memeTextAttributes
-        BottomText.placeholder = "Bottom Text"
         BottomText.textAlignment = NSTextAlignment.Center
        
         ShareButton.enabled = false
