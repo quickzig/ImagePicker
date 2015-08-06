@@ -12,6 +12,13 @@ class MemeTableViewController: UITableViewController, UITableViewDelegate, UITab
 
     var memes: [Meme]!
     
+    @IBAction func addMeme(sender: UIBarButtonItem) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let editorViewController = storyBoard.instantiateViewControllerWithIdentifier("MainViewController") as! MemeEditorController
+        self.presentViewController(editorViewController, animated: true, completion: nil)
+
+    }
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         let object = UIApplication.sharedApplication().delegate

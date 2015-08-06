@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331.5" y="-254"/>
+            <point key="canvasLocation" x="3124.5" y="252"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="Fgy-y4-D4u">
@@ -222,7 +222,13 @@
                             <outlet property="delegate" destination="YcG-hI-KDI" id="ruU-g1-5x0"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="jk9-gM-38i"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="hdC-kQ-8Mq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="302-MX-jDq">
+                            <connections>
+                                <action selector="addMeme:" destination="YcG-hI-KDI" id="4Lc-LQ-Wmw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgr-BG-Q41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,11 +272,17 @@
                             <outlet property="delegate" destination="BGS-qg-dXe" id="feP-Ls-Dtq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="52p-qE-xG8"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="52p-qE-xG8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mtM-HM-ddQ">
+                            <connections>
+                                <action selector="addMeme:" destination="BGS-qg-dXe" id="fhv-Qa-sUd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojh-01-14d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="981"/>
+            <point key="canvasLocation" x="2140.5" y="979"/>
         </scene>
         <!--Table-->
         <scene sceneID="Dws-as-DFM">
