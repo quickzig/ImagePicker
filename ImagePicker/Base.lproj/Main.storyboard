@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wzi-1U-19R">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -9,7 +9,7 @@
         <!--CreateMemeViewController-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" title="CreateMemeViewController" id="vXZ-lx-hvc" customClass="ViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" title="CreateMemeViewController" id="vXZ-lx-hvc" customClass="MemeEditorController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-469.5" y="357"/>
+            <point key="canvasLocation" x="331.5" y="-254"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="Fgy-y4-D4u">
@@ -169,17 +169,18 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chd-6Y-ZoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235.5" y="352"/>
+            <point key="canvasLocation" x="-537" y="291"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="6X9-bx-3Nq">
             <objects>
                 <collectionViewController storyboardIdentifier="MemeCollectionView" id="YcG-hI-KDI" customClass="MemeCollectionViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="SrI-j7-4sj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="50H-uw-9hT">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="112" height="119"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -189,13 +190,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="112" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uWf-BF-Zfj">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="13" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="109" height="119"/>
                                             </variation>
                                         </imageView>
                                     </subviews>
@@ -221,7 +222,7 @@
                             <outlet property="delegate" destination="YcG-hI-KDI" id="ruU-g1-5x0"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="jk9-gM-38i"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="jk9-gM-38i"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgr-BG-Q41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="1227" y="310"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="DEW-1Q-Ky9">
             <objects>
                 <tableViewController id="BGS-qg-dXe" customClass="MemeTableViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
@@ -265,7 +266,7 @@
                             <outlet property="delegate" destination="BGS-qg-dXe" id="feP-Ls-Dtq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="52p-qE-xG8"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="52p-qE-xG8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojh-01-14d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

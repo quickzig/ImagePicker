@@ -25,7 +25,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ImagePicker/ViewController.swift"
+            filePath = "ImagePicker/MemeEditorController.swift"
             timestampString = "460515557.05032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
