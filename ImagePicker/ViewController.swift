@@ -45,9 +45,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.BottomText.delegate = self
         
         self.subscribeToKeyboardNotifications()
-    
-        
-        
 
     }
     
@@ -64,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-                
+        
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         self.presentViewController(controller, animated: true, completion: nil)
         

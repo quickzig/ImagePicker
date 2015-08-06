@@ -27,7 +27,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AOa-h6-4tr"/>
-                                    <barButtonItem title="Camera" id="ezS-zx-i6O">
+                                    <barButtonItem systemItem="camera" id="ezS-zx-i6O">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="vXZ-lx-hvc" id="nES-sg-2Gn"/>
                                         </connections>
@@ -54,7 +54,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="8ib-rX-Jte">
-                                        <barButtonItem key="leftBarButtonItem" title="Share" id="wqI-mZ-OqZ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="wqI-mZ-OqZ">
                                             <connections>
                                                 <action selector="shareMeme:" destination="vXZ-lx-hvc" id="2jb-HW-bEQ"/>
                                             </connections>
