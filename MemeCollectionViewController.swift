@@ -39,4 +39,15 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         return cell
     }
     
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let meme = memes[indexPath.row]
+        
+        let destinationController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        destinationController.meme = meme
+        destinationController.memeIndex = indexPath.row
+        
+        self.navigationController?.pushViewController(destinationController, animated: true)
+    }
+    
 }

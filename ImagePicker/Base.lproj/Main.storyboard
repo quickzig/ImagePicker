@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--CreateMemeViewController-->
+        <!--Create Meme View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" title="CreateMemeViewController" id="vXZ-lx-hvc" customClass="MemeEditorController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" title="Create Meme View Controller" id="vXZ-lx-hvc" customClass="MemeEditorController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -151,6 +151,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3124.5" y="252"/>
+        </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="vQg-y0-Kts">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail View Controller" id="gdT-yx-2Cl" customClass="MemeDetailViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UXf-Qz-jgj"/>
+                        <viewControllerLayoutGuide type="bottom" id="vjX-TO-BKO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i4V-In-jm2">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PsP-d2-b8T">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="41" width="400" height="460"/>
+                                </variation>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uv2-5e-AQf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Delete" id="upF-H5-hoA"/>
+                                </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="556" width="400" height="44"/>
+                                </variation>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="PsP-d2-b8T"/>
+                                <exclude reference="Uv2-5e-AQf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="PsP-d2-b8T"/>
+                                <include reference="Uv2-5e-AQf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Meme Detail" id="Q0Y-cI-b8P"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GOc-KC-gMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3822" y="407"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="Fgy-y4-D4u">
