@@ -187,6 +187,10 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
+    @IBAction func cancelEditor(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    
+    }
 
     
    

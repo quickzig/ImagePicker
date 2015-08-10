@@ -59,7 +59,11 @@
                                                 <action selector="shareMeme:" destination="vXZ-lx-hvc" id="2jb-HW-bEQ"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Cancel" id="pZ1-zA-gxH"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="pZ1-zA-gxH">
+                                            <connections>
+                                                <action selector="cancelEditor:" destination="vXZ-lx-hvc" id="s3E-rK-yx6"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -161,39 +165,32 @@
                         <viewControllerLayoutGuide type="bottom" id="vjX-TO-BKO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i4V-In-jm2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PsP-d2-b8T">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PsP-d2-b8T">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="41" width="400" height="460"/>
+                                    <rect key="frame" x="0.0" y="20" width="400" height="559"/>
                                 </variation>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uv2-5e-AQf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem title="Delete" id="upF-H5-hoA"/>
-                                </items>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="556" width="400" height="44"/>
-                                </variation>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="PsP-d2-b8T"/>
-                                <exclude reference="Uv2-5e-AQf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="PsP-d2-b8T"/>
-                                <include reference="Uv2-5e-AQf"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Meme Detail" id="Q0Y-cI-b8P"/>
+                    <connections>
+                        <outlet property="detailImageView" destination="PsP-d2-b8T" id="sZE-Nq-KpU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOc-KC-gMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,7 +282,7 @@
         <scene sceneID="z0A-Cb-aUx">
             <objects>
                 <navigationController title="Collection" id="w9l-gs-eap" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="r4l-fV-XwZ" userLabel="Collection"/>
+                    <tabBarItem key="tabBarItem" title="" image="Collection" id="r4l-fV-XwZ" userLabel="Collection"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7m6-Hd-rLA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -335,7 +332,7 @@
         <scene sceneID="Dws-as-DFM">
             <objects>
                 <navigationController title="Table" id="h0S-IW-sGO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="LIu-oh-iXl" userLabel="Table"/>
+                    <tabBarItem key="tabBarItem" title="" image="Table" id="LIu-oh-iXl" userLabel="Table"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s67-7H-MTL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -349,4 +346,8 @@
             <point key="canvasLocation" x="1158" y="1072"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Collection" width="30" height="30"/>
+        <image name="Table" width="30" height="30"/>
+    </resources>
 </document>
