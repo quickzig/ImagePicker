@@ -15,7 +15,8 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var TopText: UITextField!
     @IBOutlet weak var BottomText: UITextField!
     @IBOutlet weak var ShareButton: UIBarButtonItem!
-    
+    @IBOutlet weak var TopNavBar: UINavigationBar!
+    @IBOutlet weak var BottomToolBar: UIToolbar!
     
     var memedImage = UIImage()
     
@@ -72,15 +73,6 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
             let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarViewController") as! UITabBarController
             self.presentViewController(vc, animated: true, completion: nil)
         }
-        
-         //    //Reset Editor View.
-            //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-           // applicationDelegate.editorMeme = Meme(topText: "TOP", bottomText: "BOTTOM", image: UIImage(), memedImage: UIImage())
-           
-        //}
-        
-        
-        
 
     }
 
@@ -106,7 +98,6 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            ImagePickerView.contentMode = .ScaleAspectFit
             ImagePickerView.image = pickedImage
             dismissViewControllerAnimated(true, completion: nil)
         }
@@ -115,7 +106,6 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
-    
     }
     
     
@@ -165,7 +155,8 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
     
     // Create a UIImage that combines the Image View and the Textfields
     func generateMemedImage() -> UIImage {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        hideNavigationAndToolBar(true)
         
         // render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -173,7 +164,7 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-         self.navigationController?.setNavigationBarHidden(false, animated: false)
+         hideNavigationAndToolBar(false)
         
         return memedImage
     }
@@ -190,6 +181,11 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func cancelEditor(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     
+    }
+    
+    func hideNavigationAndToolBar(hide: Bool){
+        BottomToolBar.hidden = hide
+        TopNavBar.hidden = hide
     }
 
     
