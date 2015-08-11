@@ -16,7 +16,7 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     @IBAction func addMeme(sender: UIBarButtonItem) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let editorViewController = storyBoard.instantiateViewControllerWithIdentifier("MainViewController") as! MemeEditorController
-        self.presentViewController(editorViewController, animated: true, completion: nil)
+        presentViewController(editorViewController, animated: true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -27,7 +27,7 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
     
     //Add the image to the collection
@@ -44,6 +44,6 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         let destinationController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         destinationController.meme = meme
         destinationController.memeIndex = indexPath.row
-        self.navigationController?.pushViewController(destinationController, animated: true)
+        navigationController?.pushViewController(destinationController, animated: true)
     }
 }
