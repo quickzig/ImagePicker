@@ -9,6 +9,7 @@
 
 import UIKit
 
+//Meme image object
 class Meme: NSObject{
     
     var topText: String!
@@ -16,14 +17,12 @@ class Meme: NSObject{
     var originalImage: UIImage!
     var memeImage: UIImage!
     
-    
-    
+    //Used to initialize the Meme object
     init(topText: String, bottomText: String, withImage originalImage: UIImage, memeImage: UIImage) {
         self.topText = topText
         self.bottomText = bottomText
         self.originalImage = originalImage
         self.memeImage = memeImage
-        
     }
     
     func generateImage(view: UIView) {
@@ -31,8 +30,6 @@ class Meme: NSObject{
         view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
         let memeImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         self.memeImage = memeImage
     }
-    
 }

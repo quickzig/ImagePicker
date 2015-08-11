@@ -12,12 +12,11 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     
     var memes: [Meme]!
 
-    
+    //Button used to add a new Meme
     @IBAction func addMeme(sender: UIBarButtonItem) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let editorViewController = storyBoard.instantiateViewControllerWithIdentifier("MainViewController") as! MemeEditorController
         self.presentViewController(editorViewController, animated: true, completion: nil)
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -31,23 +30,20 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         return self.memes.count
     }
     
+    //Add the image to the collection
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = memes[indexPath.row]
-        let imageView = UIImageView(image: meme.memeImage)
-        cell.backgroundView = imageView
+        cell.memeImageView.image = meme.memeImage
         return cell
     }
     
-    
+    //Show the detail view of the selected meme
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let meme = memes[indexPath.row]
-        
         let destinationController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         destinationController.meme = meme
         destinationController.memeIndex = indexPath.row
-        
         self.navigationController?.pushViewController(destinationController, animated: true)
     }
-    
 }
