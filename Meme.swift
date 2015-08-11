@@ -10,7 +10,7 @@
 import UIKit
 
 //Meme image object
-class Meme: NSObject{
+struct Meme {
     
     var topText: String!
     var bottomText: String!
@@ -30,6 +30,6 @@ class Meme: NSObject{
         view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
         let memeImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        self.memeImage = memeImage
-    }
+        }
+
 }
