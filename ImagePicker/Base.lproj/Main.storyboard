@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="3" y="91" width="395" height="51"/>
                                 </variation>
                             </textField>
@@ -72,8 +72,8 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="1" y="0.0" width="398" height="44"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="2" y="0.0" width="398" height="44"/>
                                 </variation>
                             </navigationBar>
                         </subviews>
@@ -90,6 +90,7 @@
                             <constraint firstItem="ZCU-6v-DlD" firstAttribute="top" secondItem="fWK-gC-uea" secondAttribute="bottom" constant="25" id="egk-if-NYA"/>
                             <constraint firstItem="fWK-gC-uea" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gR3-mI-JTS"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="znc-GV-OX1" secondAttribute="bottom" id="hsV-HV-X9I"/>
+                            <constraint firstItem="Dec-Gb-FAK" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" id="oud-ew-I5n"/>
                             <constraint firstAttribute="trailing" secondItem="vjR-mK-iRl" secondAttribute="trailing" id="ry4-jH-1It"/>
                             <constraint firstItem="ZCU-6v-DlD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="uW0-i4-66m"/>
                             <constraint firstAttribute="trailing" secondItem="fWK-gC-uea" secondAttribute="trailing" id="vsc-Fa-CLr"/>
@@ -104,21 +105,22 @@
                                 <exclude reference="Dec-Gb-FAK"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="gR3-mI-JTS"/>
-                                <exclude reference="vsc-Fa-CLr"/>
-                                <exclude reference="6iu-A1-r5L"/>
-                                <exclude reference="SlD-Gf-2WE"/>
-                                <exclude reference="ry4-jH-1It"/>
-                                <exclude reference="Kds-bA-JRK"/>
-                                <exclude reference="hsV-HV-X9I"/>
-                                <exclude reference="3Vh-QN-77K"/>
-                                <exclude reference="D4T-n8-GTg"/>
-                                <exclude reference="6Lb-IF-qVh"/>
-                                <exclude reference="egk-if-NYA"/>
-                                <exclude reference="uW0-i4-66m"/>
                                 <exclude reference="UGx-ec-5KO"/>
                                 <exclude reference="bDv-kv-qaQ"/>
                                 <exclude reference="z93-G8-D40"/>
+                                <exclude reference="3Vh-QN-77K"/>
+                                <exclude reference="D4T-n8-GTg"/>
+                                <exclude reference="oud-ew-I5n"/>
+                                <exclude reference="6iu-A1-r5L"/>
+                                <exclude reference="SlD-Gf-2WE"/>
+                                <exclude reference="ry4-jH-1It"/>
+                                <exclude reference="gR3-mI-JTS"/>
+                                <exclude reference="vsc-Fa-CLr"/>
+                                <exclude reference="6Lb-IF-qVh"/>
+                                <exclude reference="egk-if-NYA"/>
+                                <exclude reference="uW0-i4-66m"/>
+                                <exclude reference="Kds-bA-JRK"/>
+                                <exclude reference="hsV-HV-X9I"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -130,21 +132,22 @@
                                 <include reference="Dec-Gb-FAK"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="gR3-mI-JTS"/>
-                                <include reference="vsc-Fa-CLr"/>
-                                <include reference="6iu-A1-r5L"/>
-                                <include reference="SlD-Gf-2WE"/>
-                                <include reference="ry4-jH-1It"/>
-                                <include reference="Kds-bA-JRK"/>
-                                <include reference="hsV-HV-X9I"/>
-                                <include reference="3Vh-QN-77K"/>
-                                <include reference="D4T-n8-GTg"/>
-                                <include reference="6Lb-IF-qVh"/>
-                                <include reference="egk-if-NYA"/>
-                                <include reference="uW0-i4-66m"/>
                                 <include reference="UGx-ec-5KO"/>
                                 <include reference="bDv-kv-qaQ"/>
                                 <include reference="z93-G8-D40"/>
+                                <include reference="3Vh-QN-77K"/>
+                                <include reference="D4T-n8-GTg"/>
+                                <include reference="oud-ew-I5n"/>
+                                <include reference="6iu-A1-r5L"/>
+                                <include reference="SlD-Gf-2WE"/>
+                                <include reference="ry4-jH-1It"/>
+                                <include reference="gR3-mI-JTS"/>
+                                <include reference="vsc-Fa-CLr"/>
+                                <include reference="6Lb-IF-qVh"/>
+                                <include reference="egk-if-NYA"/>
+                                <include reference="uW0-i4-66m"/>
+                                <include reference="Kds-bA-JRK"/>
+                                <include reference="hsV-HV-X9I"/>
                             </mask>
                         </variation>
                     </view>
@@ -162,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3124.5" y="252"/>
+            <point key="canvasLocation" x="3129" y="268"/>
         </scene>
         <!--Meme Detail View Controller-->
         <scene sceneID="vQg-y0-Kts">
